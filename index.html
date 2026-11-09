@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player</title>
+
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="main">
+
+        <aside class="sidebar">
+
+            <div class="nav">
+                <div class="nav-option active">
+                    <i class="fa-solid fa-house"></i>
+                    <a href="#">Home</a>
+                </div>
+
+                <div class="nav-option">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="#searchInput">Search</a>
+                </div>
+            </div>
+
+            <div class="library">
+
+                <div class="options">
+                    <div class="lib-option nav-option">
+                        <i class="fa-solid fa-book"></i>
+                        <a href="#">Your Library</a>
+                    </div>
+
+                    <div class="icons">
+                        <i class="fa-solid fa-plus" id="createPlaylistBtn"></i>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <p class="box-p1">Create your first playlist</p>
+                    <p class="box-p2">It's easy, we'll help you</p>
+                    <button class="badge" id="createPlaylistBox">Create playlist</button>
+                </div>
+
+                <div class="playlist-container">
+                    <h4>Your Playlists</h4>
+                    <div id="playlistList"></div>
+                </div>
+
+            </div>
+
+        </aside>
+
+        <main class="main-content">
+
+            <div class="sticky-nav">
+
+                <div class="sticky-nav-icons">
+                    <button class="circle-btn" id="backBtn">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <button class="circle-btn" id="forwardBtn">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="sticky-nav-options">
+                    <button class="badge hide">Explore Premium</button>
+
+                    <button class="badge dark-badge">
+                        <i class="fa-regular fa-circle-down"></i>
+                        Install App
+                    </button>
+
+                    <i class="fa-regular fa-user nav-item"></i>
+                </div>
+
+            </div>
+
+            <section class="search-section">
+                <h2>Search Music</h2>
+
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="What do you want to play?">
+                </div>
+            </section>
+
+            <section class="music-section">
+                <h2>Recently Played</h2>
+
+                <div class="cards-container" id="recentContainer">
+                    <p class="empty-message">Your recently played songs will appear here.</p>
+                </div>
+            </section>
+
+            <section class="music-section">
+                <h2>Trending Now Near You</h2>
+
+                <div class="cards-container" id="trendingContainer">
+
+                    <div class="card" data-song-id="1" tabindex="0" role="button">
+                        <img src="./Assets/attention.png" class="card-img" alt="Attention">
+                        <p class="card-title">Attention</p>
+                        <p class="card-info">Charlie Puth</p>
+                        <button class="card-play" type="button">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                    </div>
+
+                    <div class="card" data-song-id="2" tabindex="0" role="button">
+                        <img src="./Assets/i-was-never-there.png" class="card-img" alt="I Was Never There">
+                        <p class="card-title">I Was Never There</p>
+                        <p class="card-info">The Weeknd</p>
+                        <button class="card-play" type="button">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                    </div>
+
+                    <div class="card" data-song-id="3" tabindex="0" role="button">
+                        <img src="./Assets/starboy.png" class="card-img" alt="Starboy">
+                        <p class="card-title">Starboy</p>
+                        <p class="card-info">The Weeknd</p>
+                        <button class="card-play" type="button">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <div class="footer">
+                <div class="line"></div>
+            </div>
+
+        </main>
+
+        <footer class="music-player">
+
+            <div class="album">
+
+                <img src="./Assets/attention.png" id="currentSongImage" class="current-song-image" alt="Current song">
+
+                <div class="song-details">
+                    <p id="currentSongTitle">Select a song</p>
+                    <p id="currentSongArtist">Unknown Artist</p>
+                </div>
+
+                <i class="fa-solid fa-plus" id="addToPlaylistBtn" tabindex="0"></i>
+                <i class="fa-regular fa-heart" id="likeBtn" tabindex="0"></i>
+
+            </div>
+
+            <div class="player">
+
+                <div class="player-control">
+
+                    <button id="shuffleBtn">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </button>
+
+                    <button id="previousBtn">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </button>
+
+                    <button id="playPauseBtn" class="play-button">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+
+                    <button id="nextBtn">
+                        <i class="fa-solid fa-forward-step"></i>
+                    </button>
+
+                    <button id="repeatBtn">
+                        <i class="fa-solid fa-repeat"></i>
+                    </button>
+
+                </div>
+
+                <div class="playback-bar">
+                    <span id="currentTime">0:00</span>
+                    <input type="range" id="progressBar" class="progress-bar" min="0" max="100" value="0">
+                    <span id="totalTime">0:00</span>
+                </div>
+
+            </div>
+
+            <div class="controls">
+                <i class="fa-solid fa-volume-high" id="volumeIcon"></i>
+                <input type="range" id="volumeBar" min="0" max="1" step="0.01" value="0.7">
+            </div>
+
+        </footer>
+
+    </div>
+
+    <audio id="audioPlayer" preload="metadata"></audio>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
